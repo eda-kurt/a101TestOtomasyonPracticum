@@ -1,6 +1,6 @@
 Feature: Uçtan Uca Ödeme Test
 
-  Scenario:Kadın Dizaltı Siyah Çorap Satın Alınması
+  Scenario Outline:Kadın Dizaltı Siyah Çorap Satın Alınması
 
     Given Web sitesine gidilir
     And Cerezleri kabul edilir
@@ -14,13 +14,13 @@ Feature: Uçtan Uca Ödeme Test
     And Sepeti Görüntüle butonuna basılır
     And Sepeti Onayla butonuna basılır
     And Üye olmadan devam et butonuna basılır
-    And Mail adresi yazılır
+    And "<mail>" mail adresi yazılır
     And Devam Et butonuna basılır
     And Yeni Adres Oluştur linkine basılır
-    And "<adresassign>" adres başlığı yazılır.
+    And "<adresBasligi>" adres başlığı yazılır.
     And "<ad>" isim yazılır.
     And "<soyad>" soyadı yazılır
-    And <cepTelefonu> cep telefonu yazılır.
+    And "<cepTelefonu>" cep telefonu yazılır.
     And "<adres>" adres yazılır.
     And "<il>" şehir seçilir
     And "<ilce>" ilçe seçilir
@@ -29,4 +29,7 @@ Feature: Uçtan Uca Ödeme Test
     And Kargo firması seçilir
     And Kaydet ve Devam Et butonuna basılır.
     And Siparişi Tamamla butonuna basılır
-    Then "Kart ile ödeme" mesajının geldiği görülür.
+    Then Kart ile ödeme mesajının geldiği görülür.
+    Examples:
+      | mail          | adresBasligi | ad  | soyad | cepTelefonu | adres       | il       | ilce    | mahalle |
+      | eda@gmail.com | Ev           | eda | Kurt  | 5922344455  | inonu cadde | istanbul | maltepe | yali    |
